@@ -1,0 +1,156 @@
+body {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.book-container {
+  background-color: #020202aa;
+  color: white;
+  border-radius: 10px;
+  max-width: 50%;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-family: 'Libre Baskerville', serif;
+}
+
+#addbook-container {
+  max-height: 70%;
+  max-width: 50%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url("../img/book-background.jpg");
+  background-size: cover;
+}
+
+#addbook-container input {
+  display: block;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  background-color: #020202aa;
+  border: none;
+  color: white;
+}
+
+#addbook-container input:focus {
+  outline: none;
+}
+
+#addbook-container input::-webkit-input-placeholder {
+  color: white;
+}
+
+#addbook-container input:-ms-input-placeholder {
+  color: white;
+}
+
+#addbook-container input::-ms-input-placeholder {
+  color: white;
+}
+
+#addbook-container input::placeholder {
+  color: white;
+}
+
+#addbook-container #bottom-form {
+  background-color: #020202aa;
+  border-radius: 10px;
+  padding: 2rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+#addbook-container #bottom-form button {
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 2rem;
+  border-radius: 35px;
+  border: none;
+}
+
+#addbook-container #bottom-form button:hover {
+  cursor: pointer;
+  background-color: #020202;
+  color: white;
+}
+
+#addbook-container #bottom-form #checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 5rem;
+}
+
+#addbook-container #bottom-form #checkbox input {
+  display: inline;
+  margin: 0;
+}
+
+#addbook-container #bottom-form #checkbox label {
+  display: inline;
+}
+
+#addbook-container #bottom-form input {
+  display: block;
+  margin: 1rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  background-color: #020202aa;
+  border: none;
+  color: white;
+}
+
+#addbook-container #bottom-form input:focus {
+  outline: none;
+}
+
+#addbook-container #bottom-form input::-webkit-input-placeholder {
+  color: white;
+}
+
+#addbook-container #bottom-form input:-ms-input-placeholder {
+  color: white;
+}
+
+#addbook-container #bottom-form input::-ms-input-placeholder {
+  color: white;
+}
+
+#addbook-container #bottom-form input::placeholder {
+  color: white;
+}
+
+#plus-book {
+  position: fixed;
+  bottom: 0;
+  right: 1rem;
+  padding: 1rem;
+  font-size: 1rem;
+  margin: 1rem;
+  border-radius: 35px;
+  border: none;
+  background-color: #020202;
+  color: white;
+}
+
+#plus-book:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

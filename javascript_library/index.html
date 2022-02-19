@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <script src="assets/JS/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section id="book-wrapper">
+
+    </section>
+    <section id="addbook-container">
+        <form>
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="author" placeholder="Author">
+            <input type="text" id="year" placeholder="Year published">
+            <div id="bottom-form">
+                <p>Have you read the book?</p>
+                <div id="checkbox">
+                    <div>
+                        <input type="checkbox" name="true" id="confirm-read">
+                        <label for="true">Yes</label>
+                    </div>
+                </div>
+                <button id="submit-book" type="button">Add book</button>
+            </div>
+        </form>
+    </section>
+    <button id="plus-book">Add book</button>
+</body>
+</html>
