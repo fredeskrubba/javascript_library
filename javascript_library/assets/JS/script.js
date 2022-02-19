@@ -66,8 +66,17 @@ function addCustomBook(){
     return customBook;
 }
 
+function removeBooks(array){
+    array.forEach(book => {
+        while (bookWrapper.firstChild){
+            bookWrapper.removeChild(bookWrapper.firstChild);
+        }
+    });
+}
 submitBookButton.addEventListener("click", ()=>{
     addBookToLibrary(addCustomBook());
     addBook.style.display = "none";
     showModal.textContent = "Add Book";
+    removeBooks(libraryArray);
+    displayBooks(libraryArray);
 })
