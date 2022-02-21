@@ -13,7 +13,6 @@ showModal.addEventListener("click", ()=>{
     }
 });
 
-
 // constructor
 function Book(title, author, year, read){
     this.title = title;
@@ -45,10 +44,31 @@ function displayBooks(array){
             bookInfo.textContent = value + ": " + book[value];
             bookContainer.appendChild(bookInfo);
         }
+        let cancelBook = document.createElement("div");
+        cancelBook.classList.add("remove-book-button");
+        let cancelBookText = document.createElement("p");
+        cancelBookText.textContent = "Remove Book";
+        cancelBook.appendChild(cancelBookText);
+        bookContainer.appendChild(cancelBook);
+        cancelBook.addEventListener("click", ()=>{
+            removeBook(book);
+        })
+        bookContainer.appendChild(addSlider());
     });
 }
 
+
 displayBooks(libraryArray);
+
+
+// remove the book where the removebook button is located
+function removeBook(book){
+    libraryArray.splice(libraryArray.indexOf(book), 1);
+    while (bookWrapper.firstChild){
+        bookWrapper.removeChild(bookWrapper.firstChild);
+    }
+    displayBooks(libraryArray);
+}
 
 const submitBookButton = document.querySelector("#submit-book");
 
@@ -80,3 +100,15 @@ submitBookButton.addEventListener("click", ()=>{
     removeBooks(libraryArray);
     displayBooks(libraryArray);
 })
+
+function addSlider(){
+    let readSlider = document.createElement("label");
+    readSlider.classList.add("switch");
+    let sliderInput = document.createElement("input");
+    sliderInput.type = "checkbox";
+    let sliderSpan = document.createElement("span");
+    sliderSpan.classList.add("slider");
+    readSlider.appendChild(sliderInput);
+    readSlider.appendChild(sliderSpan);
+    return readSlider;
+}
