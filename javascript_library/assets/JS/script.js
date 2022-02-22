@@ -40,9 +40,21 @@ function displayBooks(array){
         bookWrapper.appendChild(bookContainer);
         // for loop that goes over every key in the book, and adds it value to the dom
         for (value in book){
-            let bookInfo = document.createElement("p");
-            bookInfo.textContent = value + ": " + book[value];
-            bookContainer.appendChild(bookInfo);
+            if (value === "read" && book[value] === true){
+                let bookInfo = document.createElement("p");
+                bookInfo.textContent = "Read";
+                bookInfo.classList.add("book-read");
+                bookContainer.appendChild(bookInfo);    
+            } else if(value === "read" && book[value] === false){
+                let bookInfo = document.createElement("p");
+                bookInfo.textContent = "Not Read";
+                bookInfo.classList.add("book-read");
+                bookContainer.appendChild(bookInfo); 
+            }else {
+                let bookInfo = document.createElement("p");
+                bookInfo.textContent = value + ": " + book[value];
+                bookContainer.appendChild(bookInfo);
+            }
         }
         let cancelBook = document.createElement("div");
         cancelBook.classList.add("remove-book-button");
@@ -53,7 +65,7 @@ function displayBooks(array){
         cancelBook.addEventListener("click", ()=>{
             removeBook(book);
         })
-        bookContainer.appendChild(addSlider());
+        bookContainer.appendChild(addSlider(book));
     });
 }
 
@@ -101,14 +113,61 @@ submitBookButton.addEventListener("click", ()=>{
     displayBooks(libraryArray);
 })
 
-function addSlider(){
+function addSlider(book){
     let readSlider = document.createElement("label");
     readSlider.classList.add("switch");
     let sliderInput = document.createElement("input");
     sliderInput.type = "checkbox";
+    sliderInput.classList.add("slider-check");
     let sliderSpan = document.createElement("span");
     sliderSpan.classList.add("slider");
     readSlider.appendChild(sliderInput);
     readSlider.appendChild(sliderSpan);
+    if (book.read === true){
+        sliderInput.checked = true;        
+    }
+    sliderInput.addEventListener("click", ()=>{
+        if (book.read === true){
+            book.read = false;
+        } else if (book.read === false){
+            book.read = true;
+        }
+        while (bookWrapper.firstChild){
+            bookWrapper.removeChild(bookWrapper.firstChild);
+        }
+        libraryArray.forEach(book => {
+            let bookContainer = document.createElement("div");
+            bookContainer.classList.add("book-container");
+            bookWrapper.appendChild(bookContainer);
+            // for loop that goes over every key in the book, and adds it value to the dom
+            for (value in book){
+                if (value === "read" && book[value] === true){
+                    let bookInfo = document.createElement("p");
+                    bookInfo.textContent = "Read";
+                    bookInfo.classList.add("book-read");
+                    bookContainer.appendChild(bookInfo);    
+                } else if(value === "read" && book[value] === false){
+                    let bookInfo = document.createElement("p");
+                    bookInfo.textContent = "Not Read";
+                    bookInfo.classList.add("book-read");
+                    bookContainer.appendChild(bookInfo); 
+                }else {
+                    let bookInfo = document.createElement("p");
+                    bookInfo.textContent = value + ": " + book[value];
+                    bookContainer.appendChild(bookInfo);
+                }
+            }
+            let cancelBook = document.createElement("div");
+            cancelBook.classList.add("remove-book-button");
+            let cancelBookText = document.createElement("p");
+            cancelBookText.textContent = "Remove Book";
+            cancelBook.appendChild(cancelBookText);
+            bookContainer.appendChild(cancelBook);
+            cancelBook.addEventListener("click", ()=>{
+                removeBook(book);
+            })
+            bookContainer.appendChild(addSlider(book));
+        });
+    })
     return readSlider;
 }
